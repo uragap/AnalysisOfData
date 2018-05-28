@@ -28,13 +28,21 @@ function QTDate = read_file(x)
     end     
     fclose(fid); % Закрытие файла.
     % Графическое отображение данных
-    figure;
-    plot(QTDate(:,2),QTDate(:,1),'*'); 
-    title (strcat('Building #',x(11))) % Заголовок графика. 
-    xlabel('Temperature') % Подпись по оси x. 
-    ylabel('Energy') % Подпись по оси y.
-    grid on;
     X = QTDate(:,2);
     Y = QTDate(:,1);
+    figure;
+    plot(X,Y,'*'); 
+    title (strcat('Здание #',x(40))) % Заголовок графика. 
+    xlabel('Наружная температура, °C') % Подпись по оси x. 
+    ylabel('Энергия, Кал') % Подпись по оси y.
+    grid on;
+    hold on;
+    S = mean(X.^2)-mean(X)^2;
+    a = (mean(Y.*X) - mean(X)*mean(Y))/S;
+    b = mean(Y)-a*mean(X);
+    x = -20:0.1:20;
+    F = MyLinear(a,b,x);
+    plot(x,F);
+    
 
 % datetick('x','dd-mm-yy')

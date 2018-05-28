@@ -10,12 +10,12 @@ namespace Entities
     public class TemperaturePoint
     {
         private double temperature;
-        private DateTime timeBegin;
+        private DateTime dateBegin;
 
         public TemperaturePoint(double temperature, DateTime timeBegin)
         {
             this.temperature = temperature;
-            this.timeBegin = timeBegin;
+            this.dateBegin = timeBegin;
         }
 
         public double Temperature
@@ -25,13 +25,13 @@ namespace Entities
         }
         public DateTime TimeBegin
         {
-            get { return timeBegin; }
-            set { timeBegin = value; }
+            get { return dateBegin; }
+            set { dateBegin = value; }
         }
 
         public override string ToString()
         {
-            return timeBegin.ToString()+"\t"+Temperature.ToString();
+            return dateBegin.ToString()+"\t"+Temperature.ToString();
         }
     }
 }

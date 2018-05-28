@@ -110,7 +110,7 @@ namespace Storage
         {
             for(int i=0;i<19;i++)
             {
-                var filename = @"E:\my document\C#\Project C#\AnalysisOfData\BldStorage"
+                var filename = @"E:\my document\C#\Project C#\BldStorage"
                     + (i+1).ToString(CultureInfo.InvariantCulture) + ".txt";
                 StreamWriter streamWriter = new StreamWriter(filename);
                 buildings[i].WriteToTxtFile(streamWriter);
